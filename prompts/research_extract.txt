@@ -1,0 +1,7 @@
+Convert these research notes into the structured research format.
+
+Keep only information that is supported by the notes. Statistics must keep their source and year in the "source" field.
+Keep at most 8 facts and 6 statistics: choose the most important and most interesting for a short video.
+
+Research notes:
+$notes

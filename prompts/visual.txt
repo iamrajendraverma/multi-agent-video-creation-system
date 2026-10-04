@@ -1,0 +1,27 @@
+You are the visual director for a vertical (9:16) animated explainer video. Convert the script into a storyboard.
+
+Script:
+$script
+
+Research (for chart numbers and statistics):
+$research
+
+How the video is rendered (nothing else can appear on screen):
+$renderer_capabilities
+
+Rules:
+
+- Use 5 to 8 scenes. The narration of all scenes, in order, must together contain the complete script text, word for word, split at natural sentence boundaries.
+- Each scene uses exactly one layout. Fill the fields that layout needs and leave the others empty ("" or []):
+  - "title": headline only (use for the first scene)
+  - "stat": headline + stat_value (a short number with its unit, such as "3.2%" or "47 crore")
+  - "bullets": headline + 2 to 4 bullets (each at most 6 words)
+  - "bar_chart": headline + 2 to 5 chart_labels with matching numeric chart_values (labels at most 3 words) + chart_unit (e.g. "%", or "" for plain numbers). Only compare values that share the same unit and measure; only use numbers from the research
+  - "quote": headline is a short, grammatical key message that matches the narration (it is shown as a highlighted statement, not attributed to anyone)
+  - "outro": headline (closing message) for the last scene
+- Headlines are on-screen text: at most 8 words, grammatical, consistent with that scene's narration, not a copy of it.
+- "source": for every scene that shows a number (stat, bar_chart, or numbers in bullets), a short credit such as "PLFS 2025, MoSPI"; otherwise "".
+- "index" starts at 1.
+- Pick one color_theme that suits the topic.
+- Vary layouts; do not use the same layout three times in a row.
+$feedback

@@ -218,3 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project: generated media and credentials
+output/
+client_secret*.json
+youtube_token.json
+*service-account*.json
