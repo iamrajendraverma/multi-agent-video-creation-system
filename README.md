@@ -1,5 +1,14 @@
 # MULTI-AGENT VIDEO CREATION SYSTEM – PROJECT PLAN
 
+## Authentication
+
+Claude calls use your Claude login. You don't need an API key.
+
+1. Install Claude Code and run `claude login` once.
+2. Or, for headless/CI runs, run `claude setup-token` and set `CLAUDE_CODE_OAUTH_TOKEN` in `.env`.
+
+Usage counts against your Claude plan. To use an Anthropic API key instead, set `CLAUDE_AUTH=api_key` and `ANTHROPIC_API_KEY` in `.env`. With `CLAUDE_AUTH=login`, any `ANTHROPIC_API_KEY` in `.env` is ignored.
+
 ## Phase 1: SYSTEM OVERVIEW
 
 Objective: Build a multi-agent system that takes a user prompt and automatically produces, reviews, and publishes an animated video to YouTube.

@@ -18,13 +18,10 @@ def research_agent(state):
     )
 
     if config.RESEARCH_WEB_SEARCH:
-        tools = [{
-            "type": "web_search_20260209",
-            "name": "web_search",
-            "max_uses": config.RESEARCH_MAX_SEARCHES,
-        }]
+        tools = ["WebSearch"]
         search_instructions = (
-            "Search the web for current, authoritative data before answering."
+            "Search the web for current, authoritative data before answering. "
+            f"Use at most {config.RESEARCH_MAX_SEARCHES} searches."
         )
 
     notes = ask_claude(
@@ -34,6 +31,8 @@ def research_agent(state):
             search_instructions=search_instructions,
         ),
         tools=tools,
+        # One turn per search, plus the final answer
+        max_turns=config.RESEARCH_MAX_SEARCHES + 2,
     )
 
     # Web-search answers come back as cited free text; convert to structure

@@ -3,6 +3,7 @@ import sys
 
 import config
 from coordinator.coordinator import run_pipeline
+from services.llm import ClaudeAuthError, check_auth
 
 
 def parse_args():
@@ -50,6 +51,13 @@ def main() -> int:
 
         if not user_prompt:
             print("No prompt given.")
+            return 1
+
+    if config.CLAUDE_AUTH == "login":
+        try:
+            check_auth()
+        except ClaudeAuthError as error:
+            print(error)
             return 1
 
     result = run_pipeline(

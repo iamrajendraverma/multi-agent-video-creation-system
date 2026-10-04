@@ -1,6 +1,8 @@
 # ==============================
 # LLM / Anthropic
 # ==============================
+claude-agent-sdk>=0.2.163
+# Only needed with CLAUDE_AUTH=api_key
 anthropic>=0.70.0
 
 # ==============================

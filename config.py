@@ -15,10 +15,18 @@ def _bool(name: str, default: str) -> bool:
     return os.getenv(name, default).strip().lower() in ("1", "true", "yes")
 
 
+# Claude auth: "login" uses your Claude Code login (`claude login` or
+# CLAUDE_CODE_OAUTH_TOKEN); "api_key" uses ANTHROPIC_API_KEY
+CLAUDE_AUTH = os.getenv("CLAUDE_AUTH", "login").strip().lower()
+
+if CLAUDE_AUTH == "login":
+    # An API key in the environment would take priority over the login
+    os.environ.pop("ANTHROPIC_API_KEY", None)
+
 # Claude
 CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-sonnet-5-5")
 CLAUDE_MAX_TOKENS = int(os.getenv("CLAUDE_MAX_TOKENS", "16000"))
-# Server-side refusal fallbacks (Claude API only)
+# Server-side refusal fallbacks (CLAUDE_AUTH=api_key only)
 CLAUDE_FALLBACKS = _bool("CLAUDE_FALLBACKS", "true")
 
 # Research
